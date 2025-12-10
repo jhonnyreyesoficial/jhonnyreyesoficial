@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jhonny Reyes Oficial - Música</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jhonny Reyes Oficial - Cantautor. JR Producciones: arreglos musicales, beats y clases de música.">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #050510;
+      color: #f5f5f5;
+    }
+
+    .bg-animated {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 0% 0%, #ff0080 0, transparent 50%),
+        radial-gradient(circle at 100% 0%, #00e5ff 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, #7b00ff 0, transparent 55%);
+      background-size: 200% 200%;
+      animation: moveBg 18s ease-in-out infinite alternate;
+      filter: blur(3px);
+      opacity: 0.8;
+    }
+
+    @keyframes moveBg {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 50% 100%; }
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 1rem;
+      text-transform: uppercase;
+      display: flex;
+      gap: 8px;
+    }
+
+    .badge-live {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      font-size: 0.7rem;
+    }
+
+    nav a {
+      margin-left: 16px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #fff;
+      opacity: 0.85;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 20px 40px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff0080, #ffbf00);
+      border: none;
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .btn-primary:hover { transform: scale(1.03); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+
+    .artist-photo-wrap {
+      padding: 4px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff0080, #00e5ff);
+      box-shadow: 0 0 25px rgba(0,0,0,0.7);
+    }
+
+    .artist-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 999px;
+      object-fit: cover;
+    }
+
+    .artist-tag {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .main { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: rgba(0,0,0,0.45);
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.55);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    iframe {
+      border-radius: 12px;
+      border: none;
+    }
+
+    /* Redes sociales redondas, brillantes y animadas */
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+      align-items: center;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #ff0080 40%, #050510 100%);
+      box-shadow: 0 0 12px rgba(255,0,128,0.6);
+      animation: glowPulse 2.4s ease-in-out infinite;
+      text-decoration: none;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 0 18px rgba(255,255,255,0.9);
+    }
+
+    @keyframes glowPulse {
+      0%   { box-shadow: 0 0 8px rgba(255,0,128,0.5); }
+      50%  { box-shadow: 0 0 18px rgba(255,255,255,0.9); }
+      100% { box-shadow: 0 0 8px rgba(255,0,128,0.5); }
+    }
+
+    .services-wrapper {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .services-title {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .services-subtitle {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    .service-card {
+      background: rgba(0,0,0,0.45);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .service-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      max-height: 150px;
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.7;
+      font-size: 0.85rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    /* Video 1:1 cuadrado */
+    .video-square {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .video-square iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="bg-animated"></div>
+
+<header>
+  <div class="logo">
+    JHONNY REYES OFICIAL
+    <span class="badge-live">Cantautor</span>
+  </div>
+
+  <nav>
+    <a href="#musica">Música</a>
+    <a href="#videos">Videos</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#estudio">Estudio</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="tagline">Chile · Cantautor · JR Producciones</div>
+    <h1 class="hero-title">Jhonny Reyes Oficial</h1>
+    <p class="hero-subtitle">
+      Cantautor y productor musical. Desde <strong>JR Producciones</strong> realizo arreglos musicales,
+      beats originales, producción completa y clases de música personalizadas.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://open.spotify.com/artist/28NUlptNuUr4Cfjot7E4H6" target="_blank" rel="noopener noreferrer">
+        🎧 Escuchar en Spotify
+      </a>
+      <a class="btn-ghost" href="https://wa.me/56934827053" target="_blank" rel="noopener noreferrer">
+        💬 Contacto WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="artist-photo-wrap">
+      <img
+        class="artist-photo"
+        src="https://distrokid.imgix.net/https%3A%2F%2Fs3.amazonaws.com%2Fgather.fandalism.com%2Favatar-51934F60-E1C9-4BC5-8391A8D167E861E2.png?fm=jpg&rect=0%2C24%2C643%2C643&q=75&w=600&s=35531ce86b02528d14bdbde4b3921a81"
+        alt="Foto de Jhonny Reyes Oficial"
+      />
+    </div>
+    <div class="artist-tag">@jhonnyreyesoficial</div>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- 🎵 MÚSICA -->
+  <section class="card" id="musica">
+    <h2>Música</h2>
+    <p>
+      Escucha mi música directamente aquí desde ReverbNation y podrás descargarla completamente gratis.<br>
+      También puedes seguirme en Spotify y en mis redes sociales.
+    </p>
+
+    <iframe width="100%" height="265" scrolling="no" frameborder="no"
+      src="https://www.reverbnation.com/widget_code/html_widget/artist_5506452?widget_id=55&pwc[included_songs]=1&context_type=page_object&spoid=artist_5506452&pwc[size]=small"
+      style="width:0px;min-width:100%;max-width:100%;"></iframe>
+  </section>
+
+  <!-- 🎬 VIDEOS + REDES -->
+  <section class="card" id="videos">
+    <h2>Videos</h2>
+    <p>Videoclips y presentaciones oficiales:</p>
+
+    <div class="video-square">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=PL-Z7e01Dh6k5DICmUkDX_CROqRtAgmCbA"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <h3 style="margin-top:16px;">Redes sociales</h3>
+    <div class="social-icons">
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/jhonnyreyesoficial" target="_blank" rel="noopener noreferrer">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1024px-Instagram_logo_2022.svg.png"
+          alt="Instagram Jhonny Reyes Oficial">
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@jhonnyreyesoficial" target="_blank" rel="noopener noreferrer">
+        <img 
+          src="https://img.freepik.com/fotos-premium/logotipo-tiktok_1080029-103.jpg?semt=ais_hybrid&w=740&q=80"
+          alt="TikTok Jhonny Reyes Oficial">
+      </a>
+
+      <!-- Spotify -->
+      <a href="https://open.spotify.com/artist/28NUlptNuUr4Cfjot7E4H6" target="_blank" rel="noopener noreferrer">
+        <img 
+          src="https://e7.pngegg.com/pngimages/163/564/png-clipart-spotify-logo-spotify-samsung-gear-s3-music-streaming-media-podcast-macbook-miscellaneous-logo.png"
+          alt="Spotify Jhonny Reyes Oficial">
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/playlist?list=PL-Z7e01Dh6k5DICmUkDX_CROqRtAgmCbA" target="_blank" rel="noopener noreferrer">
+        <img 
+          src="https://w7.pngwing.com/pngs/208/269/png-transparent-youtube-play-button-computer-icons-youtube-youtube-logo-angle-rectangle-logo-thumbnail.png"
+          alt="YouTube Jhonny Reyes Oficial">
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ⭐ SOBRE MÍ (RESUMEN + BOTÓN A BIOGRAFÍA COMPLETA) -->
+  <section class="card" id="sobre-mi">
+    <h2>Sobre mí</h2>
+
+    <p>
+      <strong>Jhonny Reyes Oficial</strong> es un músico, cantante y productor venezolano
+      radicado en el sur de Chile. Su trayectoria une fe, arte y disciplina, sirviendo en
+      diversas catedrales y colaborando con sacerdotes como el Padre
+      <strong>Georges Mousalli</strong> y el Padre <strong>Juan Arango</strong>, con quien
+      impulsó el grupo <strong>Hermanos Reyes</strong> y su primer disco
+      <em>Sinergia</em>.
+    </p>
+
+    <p>
+      Hoy lidera su estudio <strong>JR Reproducciones</strong>, donde crea arreglos musicales,
+      producciones audiovisuales con inteligencia artificial y trabaja con artistas nacionales
+      e internacionales, siempre guiado de la mano de Dios.
+    </p>
+
+    <a href="biografia.html" target="_blank"
+      style="
+        display:inline-block;
+        margin-top:12px;
+        padding:8px 18px;
+        border-radius:999px;
+        background:linear-gradient(135deg,#ff0080,#ffbf00);
+        color:#fff;
+        text-decoration:none;
+        font-weight:600;">
+      Leer biografía completa
+    </a>
+  </section>
+
+</main>
+
+<!-- 🎚️ JR PRODUCCIONES -->
+<section class="services-wrapper" id="estudio">
+  <h2 class="services-title">JR Producciones – Servicios</h2>
+  <p class="services-subtitle">
+    Producción profesional, arreglos, beats personalizados y clases de música para todos los niveles.
+  </p>
+
+  <div class="services-grid">
+
+    <!-- Estudio & Arreglos -->
+    <div class="service-card">
+      <img
+        class="service-img"
+        src="https://eddcmusic.com/wp-content/uploads/2025/07/Proceso-de-un-Arreglo-Musical-Profesional-1024x576.webp"
+        alt="Arreglos musicales JR Producciones"
+      />
+      <h3>Estudio & Arreglos Musicales</h3>
+      <ul>
+        <li>Arreglos musicales profesionales</li>
+        <li>Grabación, mezcla y master</li>
+        <li>Producción completa de canciones</li>
+      </ul>
+    </div>
+
+    <!-- Beats Musicales -->
+    <div class="service-card">
+      <img
+        class="service-img"
+        src="https://institutodelasartesdechile.cl/images/beats.jpg"
+        alt="Beats musicales JR Producciones"
+      />
+      <h3>Beats Musicales</h3>
+      <ul>
+        <li>Beats exclusivos y personalizados</li>
+        <li>Instrumentales para cantautores y urbanos</li>
+        <li>Producción en DAW profesional</li>
+      </ul>
+    </div>
+
+    <!-- Clases -->
+    <div class="service-card">
+      <img
+        class="service-img"
+        src="https://static1.squarespace.com/static/56c240a0d51cd440f4c3f6ca/56c247868259b519a5f70cc1/68499eb92e5b4f7b2002f25e/1749655340061/clases+%282%29.png?format=1500w"
+        alt="Clases de música JR Producciones"
+      />
+      <h3>Clases de Música</h3>
+      <ul>
+        <li>Guitarra 🎸</li>
+        <li>Piano 🎹</li>
+        <li>Canto 🎤</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- 📞 CONTACTO -->
+<section class="card" id="contacto" style="max-width:1100px; margin:0 auto 40px; padding:20px;">
+  <h2>Contacto</h2>
+  <p>
+    Para shows, producción, beats o clases de música:<br><br>
+    📧 <a href="mailto:jhonnymusic@gmail.com" style="color:#fff;">jhonnymusic@gmail.com</a><br>
+    💬 WhatsApp:
+    <a href="https://wa.me/56934827053" target="_blank" rel="noopener noreferrer" style="color:#25D366;">+56 9 3482 7053</a>
+  </p>
+</section>
+
+<footer>
+  © <span id="year"></span> Jhonny Reyes Oficial. Todos los derechos reservados.
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/56934827053" target="_blank" rel="noopener noreferrer">💬</a>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
